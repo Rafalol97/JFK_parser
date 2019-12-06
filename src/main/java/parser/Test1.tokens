@@ -1,0 +1,13 @@
+T__0=1
+T__1=2
+MOV=3
+PUSH=4
+INT=5
+XOR=6
+NUMBER=7
+' '=1
+','=2
+'mov'=3
+'push'=4
+'int'=5
+'xor'=6
