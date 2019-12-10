@@ -1,31 +1,22 @@
 grammar GrammarJfk;
-NUMBER : [0-9]+;
- PLUS: '+';
- MINUS: '-';
- MULT: '*';
- DIV: '/';
 
-WHITESPACE: ('\t' | ' ')+;
-
-
-
-
-
-NEWLINE: ('\r'? '\n' | '\r')+ ;
-mov : 'mov' WHITESPACE expression ' '* ',' ' '* registry ' '* NEWLINE ;
-int : 'int' WHITESPACE '0x80'  NEWLINE ;
-push : 'push' WHITESPACE expression   NEWLINE;
-xor :  'xor' WHITESPACE expression ' '* ',' ' '* registry ' '* NEWLINE;
+mov: 'mov' WHITESPACE+ expression WHITESPACE* ',' WHITESPACE* registry WHITESPACE* NEWLINE ;
+intc: 'int' WHITESPACE '0x80'  NEWLINE ;
+push: 'push' WHITESPACE+ expression   NEWLINE;
+xor:  'xor' WHITESPACE+ registry WHITESPACE* ',' WHITESPACE* registry WHITESPACE* NEWLINE;
 
 registry : ('%eax'|'%ebx'|'%ecx'|'%edx');
-operators : (' '*  PLUS ' '* | ' '* MINUS ' '* | ' '* MULT ' '* | ' '* DIV ' '*);
-
+command: (mov|intc|push|xor);
 expression:
 NUMBER
 | registry
 | '(' inner = expression ')'
-| left=expression operator=operators right=expression ;
+| left=expression ' '* operator='*' ' '* right=expression
+| left=expression ' '* operator='-'  ' '* right=expression
+| left=expression ' '* operator='+'  ' '* right=expression;
 
 
-
-command: (mov|int|push|xor) command;
+NUMBER : [0-9]+;
+NEWLINE: ('\r'? '\n' | '\r')+ ;
+//WHITESPACE: ('\t'|' ') ;
+WHITESPACE: ' ';

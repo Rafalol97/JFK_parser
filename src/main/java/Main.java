@@ -7,12 +7,15 @@ public class Main {
     public static  void main(String[] args){
 
         ANTLRInputStream inputStream = new ANTLRInputStream(
-                "I would like to [b][i]emphasize[/i][/b] this and [u]underline [b]that[/b][/u] ." +
-                        "Let's not forget to quote: [quote author=""]You're wrong![/quote]");
+               "xor %ecx,%ebx \n");
 
-        GrammarJfkLexer markupLexer = new GrammarJfkLexer(inputStream);
-        CommonTokenStream commonTokenStream = new CommonTokenStream(markupLexer);
-        GrammarJfkParser markupParser = new GrammarJfkParser(commonTokenStream);
+        GrammarJfkLexer grammarJfkLexer = new GrammarJfkLexer(inputStream);
+        CommonTokenStream commonTokenStream = new CommonTokenStream(grammarJfkLexer);
+        GrammarJfkParser grammarJfkParser = new GrammarJfkParser(commonTokenStream);
+
+        GrammarJfkParser.CommandContext commandContext = grammarJfkParser.command();
+        GrammarVisitor grammarVisitor = new GrammarVisitor();
+        System.out.println(grammarVisitor.visitCommand(commandContext).getRegistry());
 
 
     }
