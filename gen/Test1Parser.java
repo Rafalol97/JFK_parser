@@ -1,4 +1,4 @@
-// Generated from C:/Users/rafal/IntelliJIDEAProjects/Zad1/src/main/antlr4\Test1.g4 by ANTLR 4.7.2
+// Generated from C:/Users/rafal/IntelliJIDEAProjects/Zad1/src/main/antlr4\GrammarJfk.g4 by ANTLR 4.7.2
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -72,7 +72,7 @@ public class Test1Parser extends Parser {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "Test1.g4"; }
+	public String getGrammarFileName() { return "GrammarJfk.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }

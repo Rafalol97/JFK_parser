@@ -1,4 +1,4 @@
-grammar Test1;
+grammar GrammarJfk;
 NUMBER : [0-9]+;
  PLUS: '+';
  MINUS: '-';
@@ -8,14 +8,14 @@ NUMBER : [0-9]+;
 WHITESPACE: ('\t' | ' ')+;
 
 
-fragment WHITESPACEZERO:  ' '*;
+
 
 
 NEWLINE: ('\r'? '\n' | '\r')+ ;
-mov : 'mov' WHITESPACE expression WHITESPACE ',' WHITESPACE registry WHITESPACE NEWLINE ;
+mov : 'mov' WHITESPACE expression ' '* ',' ' '* registry ' '* NEWLINE ;
 int : 'int' WHITESPACE '0x80'  NEWLINE ;
 push : 'push' WHITESPACE expression   NEWLINE;
-xor :  'xor' WHITESPACE expression WHITESPACE ',' WHITESPACE registry WHITESPACE NEWLINE;
+xor :  'xor' WHITESPACE expression ' '* ',' ' '* registry ' '* NEWLINE;
 
 registry : ('%eax'|'%ebx'|'%ecx'|'%edx');
 operators : (' '*  PLUS ' '* | ' '* MINUS ' '* | ' '* MULT ' '* | ' '* DIV ' '*);
