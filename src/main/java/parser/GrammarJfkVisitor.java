@@ -1,4 +1,4 @@
-// Generated from C:/Users/Rafa³ Cichosz/IdeaProjects/JFK_lab1/src/main/antlr4\GrammarJfk.g4 by ANTLR 4.7.2
+// Generated from C:/Users/rafal/IntelliJIDEAProjects/Zad1/src/main/antlr4\GrammarJfk.g4 by ANTLR 4.7.2
 package parser;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
