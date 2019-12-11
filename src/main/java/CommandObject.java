@@ -2,7 +2,8 @@ public class CommandObject {
     public enum Command {MOV,INT,XOR,PUSH}
     private Integer expression;
     private String registry;
-
+    private String registry2;
+    private Command command;
     public String getRegistry2() {
         return registry2;
     }
@@ -10,10 +11,6 @@ public class CommandObject {
     public void setRegistry2(String registry2) {
         this.registry2 = registry2;
     }
-
-    private String registry2;
-    private Command command;
-
     public CommandObject(Integer expression, String registry, Command command) {
         this.expression = expression;
         this.registry = registry;
@@ -43,6 +40,7 @@ public class CommandObject {
     public void setCommand(Command command) {
         this.command = command;
     }
+
 
     public CommandObject() {
     }

@@ -1,8 +1,6 @@
 import parser.GrammarJfkBaseVisitor;
 import parser.GrammarJfkParser;
 
-import java.text.NumberFormat;
-
 public class GrammarVisitor extends GrammarJfkBaseVisitor {
     @Override
     public Object visitMov(GrammarJfkParser.MovContext ctx) {
@@ -52,10 +50,10 @@ public class GrammarVisitor extends GrammarJfkBaseVisitor {
                return visitExpression(ctx.left)*visitExpression(ctx.right);
             } else if (sign.equals("+")) {
                 return visitExpression(ctx.left)+visitExpression(ctx.right);
-            } else if (sign.equals("-")) {
+            } else {
                 return visitExpression(ctx.left)-visitExpression(ctx.right);
             }
-            return Integer.MIN_VALUE;
+
         }
         return 0;
     }

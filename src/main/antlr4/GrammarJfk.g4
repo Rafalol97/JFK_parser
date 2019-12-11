@@ -1,9 +1,9 @@
 grammar GrammarJfk;
 
-mov: 'mov' WHITESPACE+ expression WHITESPACE* ',' WHITESPACE* registry WHITESPACE* NEWLINE ;
+mov: 'mov' WHITESPACE expression WHITESPACE* ',' WHITESPACE* registry WHITESPACE* NEWLINE ;
 intc: 'int' WHITESPACE '0x80'  NEWLINE ;
-push: 'push' WHITESPACE+ expression   NEWLINE;
-xor:  'xor' WHITESPACE+ registry WHITESPACE* ',' WHITESPACE* registry WHITESPACE* NEWLINE;
+push: 'push' WHITESPACE expression   NEWLINE;
+xor:  'xor' WHITESPACE registry WHITESPACE* ',' WHITESPACE* registry WHITESPACE* NEWLINE;
 
 registry : ('%eax'|'%ebx'|'%ecx'|'%edx');
 command: (mov|intc|push|xor);
@@ -18,5 +18,6 @@ NUMBER
 
 NUMBER : [0-9]+;
 NEWLINE: ('\r'? '\n' | '\r')+ ;
-//WHITESPACE: ('\t'|' ') ;
-WHITESPACE: ' ';
+WHITESPACE: WHITE|TAB;
+WHITE: ' ';
+TAB: '\t';
